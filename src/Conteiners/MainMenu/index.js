@@ -6,7 +6,13 @@ import {
   createNewGame,
 } from './../../actions/index';
 
-import Menu from './../../Widgets/Menu';
+import Menu from './Menu';
+
+const menu = [
+  {id: 1, name: 'Create game', link: '/gameActive'},
+  {id: 2, name: 'Return game', link: '/return-game'},
+  {id: 3, name: 'Exit', link: '/exit'}
+]
 
 class MainMenu extends Component {
   handleClick = (fun) => {
@@ -21,10 +27,8 @@ class MainMenu extends Component {
     } = this.props;
     return (
       <View>
-        <Text>press: {newMapGame.data}</Text>
         <Menu
-          menu={['New game', 'return game', 'exit']}
-          onPress={this.handleClick}
+          menu={menu}
         />
       </View>
     )
