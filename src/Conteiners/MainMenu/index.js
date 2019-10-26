@@ -10,18 +10,18 @@ import Menu from './../../Widgets/Menu';
 
 class MainMenu extends Component {
   handleClick = (fun) => {
-    console.log(fun);
     if (fun === 'New game') {
-      this.props.createNewGame()
+      console.log('click to "New game"')
+      this.props.createNewGame(fun)
     }
   }
   render () {
     const {
-      mapGame,
+      newMapGame,
     } = this.props;
-    console.log('this', this)
     return (
       <View>
+        <Text>press: {newMapGame.data}</Text>
         <Menu
           menu={['New game', 'return game', 'exit']}
           onPress={this.handleClick}
@@ -32,7 +32,7 @@ class MainMenu extends Component {
 }
 
 const mapStateToProps = (state)=> ({
-  mapGame: state.mapGame,
+  newMapGame: state.newMapGame,
 })
 
 export default connect(mapStateToProps, {
